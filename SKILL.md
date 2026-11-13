@@ -107,15 +107,30 @@ python3 scripts/generate_assets.py --help
    - Run `scripts/indexnow_ping.py` to generate/verify the IndexNow key file and submit all canonical URLs to `https://api.indexnow.org/indexnow` (`HTTP 202` expected).
 5. Load **`subskills/07-local-eeat-authority.md`**: Verify geo-meta/local schema and compile any off-page actions the site owner needs outside the codebase (Google Business Profile, external brand mentions, clean backlinks).
 
-### Phase 4: Final Live Verification & Report (`09`)
+### Phase 4: Final Live Verification, PASS Gate & Complete User Report (`09`)
 Load **`subskills/09-verify-and-score.md`**:
-1. Test live HTTP responses for canonical consistency, `/sitemap.xml` redirect, `/robots.txt`, `/llms.txt`, `/.well-known/ai-catalog.json`, `/404` behavior, and OpenAI/Google/Anthropic User-Agents.
-2. Run live PageSpeed Insights / Lighthouse (Mobile + Desktop) covering `Performance`, `Accessibility`, `Best Practices`, `SEO`, and `Agentic Browsing` (if supported).
-3. Deliver a concise, evidence-backed final report listing:
-   - Every file changed and deployed
-   - Live HTTP, Schema, and IndexNow/GSC verification outputs
-   - Measured Lighthouse / PageSpeed scores
-   - Any remaining non-code / off-page recommendations (clearly separated from completed technical work)
+1. Test live HTTP responses for canonical consistency, `/sitemap.xml` redirect, `/robots.txt`, `/llms.txt`, `/.well-known/ai-catalog.json`, `/404` behavior, and Google/OpenAI/Anthropic/Perplexity User-Agents.
+2. Run `python3 scripts/simpleseo_audit.py https://www.example.com --format markdown` and live PageSpeed Insights / Lighthouse (Mobile + Desktop) covering `Performance`, `Accessibility`, `Best Practices`, `SEO`, and `Agentic Browsing`.
+3. **Run the Final PASS/FAIL Delivery Gate** below. Every check **MUST** be **`PASS`** (or `N/A` only if explicitly skipped by user choice in Gate 2) backed by real observed evidence. If any item is **`FAIL`**, fix it first, re-deploy, and re-verify before reporting to the user:
+
+| Gate ID | Check | Required Evidence | Status Rule |
+|---|---|---|---|
+| `SEO-01` | Canonical & Redirect Consistency | Live `curl` shows `200` on canonical, clean `301`/`308` on alternate host, zero canonical-to-redirect loops | `PASS` / `FAIL` |
+| `SEO-02` | Sitemaps & `/sitemap.xml` | `/sitemap-index.xml` and `/sitemap.xml` resolve cleanly (`200` or redirect) and contain only canonical `200` URLs | `PASS` / `FAIL` |
+| `SEO-03` | `robots.txt` RFC 9309 Compliance | `200 OK`, zero invalid lines, allows Googlebot + AI search crawlers (`OAI-SearchBot`, `ChatGPT-User`, `Claude-SearchBot`, `PerplexityBot`) | `PASS` / `FAIL` |
+| `SEO-04` | Structured Data (`JSON-LD`) | Valid `@graph`, zero parse errors, zero deprecated Schema types, zero fabricated ratings/claims | `PASS` / `FAIL` |
+| `SEO-05` | On-Page, Sitelinks & Social Cards | Unique title/meta/H1 per route, `hreflang`, internal footer/nav links, `1200x630` OG image live (`200`), real `404` status | `PASS` / `FAIL` |
+| `SEO-06` | AI Search & Agent Discovery (GEO) | `/llms.txt` (`200`, H1 + Markdown links + 50+ chars) and `/.well-known/ai-catalog.json` (`200`, valid ARD v1.0) | `PASS` / `FAIL` |
+| `SEO-07` | Performance & Core Web Vitals | All `<img>` have `width`/`height` + `alt` (or `role="presentation"`), LCP preload active, `CLS = 0` | `PASS` / `FAIL` |
+| `SEO-08` | Search Engine Submissions | GSC sitemap submitted (`Success`), core URLs tested & requested for indexing, IndexNow pinged (`200`/`202`) | `PASS` / `FAIL` / `GUIDE_GIVEN` |
+| `SEO-09` | Live Lighthouse / PSI Verification | Measured scores reported (`Performance`, `Accessibility`, `Best Practices`, `SEO`, `Agentic Browsing`) | `PASS` / `FAIL` |
+| `SEO-10` | Security, Privacy & Copy Hygiene | Security headers present, private repos never leaked publicly, zero em-dashes (`U+2014`) in generated copy | `PASS` / `FAIL` |
+
+4. **Deliver the Complete Final Report to the User** immediately after all gates pass, containing four clear sections:
+   - **1. Summary of All SEO Work Completed**: Exact files edited/created, commits/deployments, and GSC/IndexNow submissions performed.
+   - **2. Benefits Delivered**: Concrete impact table explaining what each applied optimization unlocks for Google Search, Sitelinks, Core Web Vitals, and AI Search citations.
+   - **3. Final PASS/FAIL Audit Matrix & Live Scores**: The `SEO-01` through `SEO-10` table with real measured HTTP codes, `simpleseo_audit.py` results, and Lighthouse/PageSpeed scores (honestly marking whether each item succeeded or why any item was blocked).
+   - **4. Next Off-Page Steps (Outside Code)**: Clear action list for Google Business Profile, genuine reviews, and external brand mentions/backlinks.
 
 ---
 

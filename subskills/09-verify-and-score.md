@@ -33,5 +33,11 @@ Focus: Never assume an optimization worked locally. Verify every route, header, 
    - SEO = 100
    - Agentic Browsing = full pass (`4/4` or `N/N`)
 
-4. **Final Output to User**
-   Summarize verified evidence concisely: modified files, commits/deployments, GSC & IndexNow confirmation, live Lighthouse scores, and any non-code off-page steps left for the owner.
+4. **Mandatory Final PASS/FAIL Gate & Complete Report**
+   - Run every check in the `SEO-01` through `SEO-10` Final Delivery Gate from `SKILL.md`.
+   - Never deliver a report containing an unresolved `FAIL`. Fix any failure, redeploy, and re-measure first.
+   - Always present the user with:
+     1. Complete list of every SEO task executed (technical, schema, on-page/sitelinks, GEO/AI, performance, GSC, IndexNow)
+     2. Concrete benefit of each change
+     3. Exact `PASS` / `FAIL` status backed by live command/Lighthouse/GSC evidence
+     4. Honest summary of off-page actions outside code (Google Business Profile, external brand mentions, genuine reviews)
