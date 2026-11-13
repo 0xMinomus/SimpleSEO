@@ -77,23 +77,19 @@ If any requirement is not ready yet, choose **No** at Gate 1. SimpleSEO stops im
 
 SimpleSEO never touches your codebase or Search Console account without permission. Every run follows a strict four-stage loop:
 
-```text
-You call /simpleseo (or mention SimpleSEO)
-          |
-          v
-[Gate 1] Prerequisite check (Hosting + Custom Domain + Google Search Console)
-    |-- No  --> Stops immediately and walks you through the setup guide.
-    |-- Yes --> Moves to Gate 2.
-          |
-          v
-[Gate 2] Shows all 9 sub-skills + their benefits and asks for confirmation
-    |-- Confirmed --> Executes Phases 1 to 4 end to end.
-          |
-          v
-[Phase 1 to 3] Audits live site, fixes code/schema/AI files, builds, deploys, submits GSC + IndexNow
-          |
-          v
-[Gate 3: Final PASS Audit] Verifies SEO-01..SEO-10 live, then prints your full SEO + benefit report
+```mermaid
+flowchart TD
+  Start["Call /simpleseo or mention SimpleSEO"] --> G1{"Gate 1: Hosted, custom domain, and in Google Search Console?"}
+  G1 -- "No" --> Setup["Stop execution and return step-by-step setup guide"]
+  G1 -- "Yes" --> G2{"Gate 2: Show 9 sub-skills + benefits and confirm?"}
+  G2 -- "Audit only" --> Audit["Run read-only audit and return prioritized findings"]
+  G2 -- "Yes, run end-to-end" --> P1["Phase 1: Baseline live audit and canonical lock"]
+  P1 --> P2["Phase 2: Technical, Schema, Sitelinks, GEO, and Core Web Vitals fixes"]
+  P2 --> P3["Phase 3: Build, deploy, Google Search Console, and IndexNow submit"]
+  P3 --> P4["Phase 4: Live HTTP, bot-UA, and Lighthouse checks"]
+  P4 --> G3{"Final Gate: Do SEO-01 to SEO-10 all PASS?"}
+  G3 -- "Fail" --> P2
+  G3 -- "Pass" --> Report["Deliver complete SEO work, benefit, and PASS/FAIL score report"]
 ```
 
 ## Included sub-skills & benefits
