@@ -8,7 +8,7 @@
     "url": "https://github.com/0xMinomus"
   },
   "repository": "https://github.com/0xMinomus/SimpleSEO",
-  "logo": "./assets/simpleseo-logo.svg",
+  "logo": "./.github/simpleseo-logo.svg",
   "license": "MIT",
   "keywords": [
     "seo",

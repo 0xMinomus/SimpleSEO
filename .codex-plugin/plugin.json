@@ -27,7 +27,7 @@
     "developerName": "0xMinomus",
     "category": "Productivity",
     "brandColor": "#0E3275",
-    "logo": "./assets/simpleseo-logo.svg",
-    "screenshots": ["./assets/simpleseo-hero.png"]
+    "logo": "./.github/simpleseo-logo.svg",
+    "screenshots": ["./.github/simpleseo-wordmark-dark.png"]
   }
 }

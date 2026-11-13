@@ -1,29 +1,39 @@
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/simpleseo-wordmark-dark.png" />
+    <source media="(prefers-color-scheme: light)" srcset=".github/simpleseo-wordmark-light.png" />
+    <img src=".github/simpleseo-wordmark-dark.png" alt="/simpleseo" width="520" />
+  </picture>
+
+  <h1>SimpleSEO: One Skill Call from Deployed URL to Google-Ranked &amp; AI-Cited</h1>
+</div>
+
+---
+
 <p align="center">
-  <img src="assets/simpleseo-hero.png" alt="SimpleSEO" width="720" />
+  <code>npx skills add 0xMinomus/SimpleSEO</code>
 </p>
 
-<h3 align="center">One skill call to go from deployed site to Google-ranked and AI-cited.</h3>
-
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT" /></a>
-  <img src="https://img.shields.io/badge/agents-universal-blue.svg" alt="Universal Agent Skill" />
-  <img src="https://img.shields.io/badge/python-3.10%2B_stdlib-yellow.svg" alt="Python 3.10+ Stdlib" />
-  <img src="https://img.shields.io/badge/sub--skills-9_modules-black.svg" alt="9 Sub-Skills" />
-  <a href="https://github.com/0xMinomus/SimpleSEO/releases/tag/v1.0"><img src="https://img.shields.io/badge/release-v1.0-orange.svg" alt="Release v1.0" /></a>
-</p>
-
-<p align="center">
-  <a href="#prerequisites"><strong>Prerequisites</strong></a>
+  <a href="#prerequisites">Prerequisites</a>
   ·
   <a href="#how-simpleseo-works">How it works</a>
-  ·
-  <a href="#installation">Install</a>
   ·
   <a href="#included-sub-skills--benefits">Sub-skills</a>
   ·
   <a href="#final-pass-gate--delivery-report">PASS Gate</a>
   ·
+  <a href="#installation">Install</a>
+  ·
   <a href="#standalone-cli-tools">CLI tools</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/0xMinomus/SimpleSEO/releases/tag/v1.0"><img src="https://img.shields.io/badge/version-v1.0-c93b2b?style=flat-square" alt="Version v1.0" /></a>
+  <img src="https://img.shields.io/badge/python-3.10%2B-2ea44f?style=flat-square" alt="Python 3.10+" />
+  <img src="https://img.shields.io/badge/sub--skills-9_modules-111827?style=flat-square" alt="9 Sub-Skills" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-d9a726?style=flat-square" alt="License: MIT" /></a>
+  <img src="https://img.shields.io/badge/agents-universal-5865F2?style=flat-square" alt="Universal Agent Skill" />
 </p>
 
 ---
@@ -210,10 +220,10 @@ python3 -m unittest discover -s tests -v
 
 ```text
 SimpleSEO/
-├── assets/                         # Brand logo SVG and README hero banner PNG
 ├── SKILL.md                        # Universal orchestrator, 2-gate onboarding & final PASS gate
 ├── AGENTS.md                       # Universal entrypoint for Codex, omp, OpenCode, and Cline
 ├── CLAUDE.md                       # Claude Code pointer
+├── .github/                        # Copilot instructions & theme-aware README wordmarks
 ├── .claude-plugin/                 # Claude Code plugin & marketplace manifests
 ├── .codex-plugin/                  # OpenAI Codex plugin manifest
 ├── .cursor-plugin/                 # Cursor plugin manifest
@@ -221,7 +231,6 @@ SimpleSEO/
 ├── .kimi-plugin/                   # Kimi Code plugin manifest
 ├── .cline-plugin/                  # Cline plugin manifest
 ├── .gemini/                        # Gemini CLI instructions
-├── .github/                        # Copilot Workspace instructions
 ├── subskills/                      # 9 modular execution guides
 ├── references/                     # Setup guide, Schema templates, ARD & QA checklists
 ├── scripts/                        # Zero-dependency Python 3 audit, generator, and IndexNow CLIs
