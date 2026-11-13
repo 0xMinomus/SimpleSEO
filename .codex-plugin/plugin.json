@@ -1,0 +1,24 @@
+{
+  "name": "simpleseo",
+  "version": "1.0.0",
+  "description": "SimpleSEO: Universal all-in-one SEO, Sitelinks, Schema.org, Core Web Vitals, Google Search Console, IndexNow, and AI Search (GEO) skill pack.",
+  "author": {
+    "name": "0xMinomus",
+    "url": "https://github.com/0xMinomus"
+  },
+  "homepage": "https://github.com/0xMinomus/SimpleSEO",
+  "repository": "https://github.com/0xMinomus/SimpleSEO",
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "geo",
+    "ai-search",
+    "schema-org",
+    "google-search-console",
+    "indexnow",
+    "llms-txt",
+    "lighthouse",
+    "agent-skills"
+  ],
+  "skills": "./"
+}

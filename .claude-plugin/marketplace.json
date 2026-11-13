@@ -1,0 +1,16 @@
+{
+  "name": "simpleseo",
+  "description": "SimpleSEO: All-in-one SEO, Schema, Sitelinks, Core Web Vitals, GSC, IndexNow, and AI Search (GEO) skill pack.",
+  "owner": {
+    "name": "0xMinomus",
+    "url": "https://github.com/0xMinomus"
+  },
+  "plugins": [
+    {
+      "name": "simpleseo",
+      "source": "./",
+      "version": "1.0.0",
+      "description": "One skill call to optimize a deployed site for Google Search, Sitelinks, Core Web Vitals, and AI Search citations."
+    }
+  ]
+}
